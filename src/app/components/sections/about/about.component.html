@@ -8,7 +8,7 @@
          (click)="toggleAccordion(i)"
          class="flex items-center justify-between w-full p-4 text-left bg-gray-100 hover:bg-gray-200 focus:outline-none transition-all duration-300"
        >
-         <span class="text-lg font-semibold text-gray-900">{{ item.title }}</span>
+         <div [innerHTML]="item.title | safeHtml"></div>
          <svg
            [ngClass]="{'rotate-180': activeIndex === i}"
            class="w-6 h-6 text-black transform transition-transform duration-300"
@@ -30,7 +30,8 @@
          class="overflow-hidden max-h-96 transition-all duration-500 ease-in-out"
        >
          <div class="p-4 text-gray-700 bg-gray-50">
-           <p>{{ item.content }}</p>
+           <!-- <p>{{ item.content }}</p> -->
+           <div [innerHTML]="item.description | safeHtml"></div>
          </div>
        </div>
      </div>
