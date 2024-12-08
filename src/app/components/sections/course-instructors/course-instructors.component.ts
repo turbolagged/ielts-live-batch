@@ -9,8 +9,5 @@ export class CourseInstructorsComponent {
   @Input() instructors: any;
 
   ngOnInit () {
-    console.log(this.instructors);
-    
   }
-
 }

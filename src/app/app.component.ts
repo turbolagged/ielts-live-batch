@@ -21,9 +21,6 @@ export class AppComponent {
 	async initFunction() {
 		this.courseDetails = await this.getCourseDetails();
 		this.variantDetails = await this.getVariantDetails();
-
-		console.log(this.variantDetails);
-
 	}
 
 	constructor(private courseDetailsService: CourseDetailsService, private variantDetailsService: VariantDetailsService) { }

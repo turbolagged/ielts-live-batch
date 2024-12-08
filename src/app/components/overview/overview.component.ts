@@ -1,6 +1,5 @@
 import { Component, Input } from '@angular/core';
 import { interval, Subscription } from 'rxjs';
-// const ADMISSION_END = '2025-01-06T23:59:59';
 
 @Component({
 	selector: 'app-overview',
@@ -10,7 +9,7 @@ import { interval, Subscription } from 'rxjs';
 export class OverviewComponent {
 	@Input() variantDetails: any;
 	@Input() courseDetails: any;
-	
+
 	countdown: { days: number; hours: number; minutes: number; seconds: number } =
 		{ days: 0, hours: 0, minutes: 0, seconds: 0 }
 	countdownKeys: Array<keyof typeof this.countdown> = ['days', 'hours', 'minutes', 'seconds'];
@@ -21,11 +20,8 @@ export class OverviewComponent {
 
 	ngOnInit() {
 		this.targetDate = new Date(this.variantDetails?.items[0].meta[1].values[0].end_at).getTime();
-
 		this.countdownSubscription = interval(1000).subscribe(() => this.updateCountdown());
-		console.log(111);
-		console.log(this.variantDetails.items[0].meta[1].values[0].text);			
-}
+	}
 
 	ngOnDestroy() {
 		this.countdownSubscription?.unsubscribe();

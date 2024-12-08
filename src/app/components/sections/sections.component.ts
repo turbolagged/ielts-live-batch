@@ -9,6 +9,5 @@ export class SectionsComponent {
   @Input() courseDetails: any;
 
   ngOnInit () {
-    console.log(this.courseDetails?.sections[0].values);
   }
 }

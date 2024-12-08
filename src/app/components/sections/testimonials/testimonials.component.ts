@@ -30,7 +30,6 @@ export class TestimonialsComponent {
 	];
 
 	ngOnInit() {
-		console.log(this.testimonials);
 		this.processSlides();
 	}
 
