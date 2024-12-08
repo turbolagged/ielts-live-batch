@@ -7,7 +7,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Clone the project, run `npm install`, and then run `ng serve` to start the development server. Navigate to http://localhost:4200/ to view the application. The application.
 
 
-## Live Preview with Stackblitz
+## Live Preview of IELTS-Live-Batch on Stackblitz
 ([IELTS-LIVE-BATCH](https://stackblitz.com/~/github.com/turbolagged/ielts-live-batch))
 
 # Features Implemented
