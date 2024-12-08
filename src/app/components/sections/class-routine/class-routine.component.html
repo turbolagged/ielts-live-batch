@@ -1,0 +1,10 @@
+<h2 class="mb-2 text-xl font-semibold md:text-2xl">{{routine?.name}}</h2>
+<div class="flex items-center mb-4 "><img
+		src="https://s3.ap-southeast-1.amazonaws.com/cdn.10minuteschool.com/images/1667985694407.png" class="h-4 w-[14px]"
+		alt="download">
+	<div class="ml-2">
+		<div class="text-sm font-medium underline cursor-pointer text-green-500 md:text-base">ডাউনলোড রুটিন
+		</div>
+	</div>
+</div>
+<div [innerHTML]="routine?.values[0].html | safeHtml"></div>

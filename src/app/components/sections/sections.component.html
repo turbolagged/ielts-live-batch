@@ -1,0 +1,50 @@
+<!-- <div class="container mx-auto px-4 ">
+ <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+   <div class="p-4">
+    hola
+   </div>
+   <div class="p-4">Item 2</div>
+ </div>
+</div> -->
+
+<!-- free demo class  -->
+<div class="flex gap-4 p-4 mb-16 overflow-hidden md:p-8 rounded-xl md:mb-12" [ngStyle]="{ 'background-image': 'url(' + courseDetails?.sections[0].values[0].background.image + ')',
+		'background-color': courseDetails?.sections[0]?.values[0]?.background?.title_color
+	}">
+	<div class="w-full md:w-1/2 text-white">
+		<img src="{{courseDetails?.sections[0].values[0].top_left_icon_img}}" style="height:40px" class="mb-4">
+		<h2 class="text-xl font-semibold">{{courseDetails?.sections[0].values[0].title}}</h2>
+		<p class="mt-2 text-base" style="color:#f1eded">{{courseDetails?.sections[0].values[0].description}}</p>
+		<button class="bg-green-500 text-white rounded hover:bg-green-600 mt-4 text-center px-6 py-2">
+			{{courseDetails?.sections[0].values[0].cta.text}}
+		</button>
+	</div>
+
+	<div class="items-center hidden w-1/2 md:flex">
+		<img src="{{courseDetails?.sections[0].values[0].thumbnail}}" height="200">
+	</div>
+</div>
+
+<div class="mb-16">
+	<app-course-instructors [instructors]="courseDetails?.sections[3]" ></app-course-instructors>
+</div>
+
+<div class="mb-16">
+	<app-course-features [features]="courseDetails?.sections[4]"></app-course-features>
+</div>
+
+<div class="mb-16">
+	<app-pointers [pointers]="courseDetails?.sections[5]"></app-pointers>
+</div>
+
+<div class="mb-16">
+	<app-class-routine [routine]="courseDetails?.sections[6]"></app-class-routine>
+</div>
+
+<div class="mb-16">
+	<app-testimonials [testimonials]="courseDetails?.sections[8]"></app-testimonials>
+</div>
+
+<div class="mb-16">
+	<app-about [about]="courseDetails?.sections[8]"></app-about>
+</div>

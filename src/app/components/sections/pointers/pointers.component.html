@@ -1,0 +1,13 @@
+<h2 class="mb-4 text-xl font-semibold md:text-2xl">{{pointers?.name}}</h2>
+
+<div class="mb-6 md:mb-10 relative bg-[#E5E7EB] py-2 md:bg-white md:py-0">
+	<div class="rounded-md md:border ">
+		<div class="pt-2 md:p-6">
+			<ul class="grid grid-cols-1 gap-2 md:grid-cols-[1fr_1fr] md:gap-4">
+				<li class="flex items-start gap-2 mb-2" *ngFor="let pointer of pointers?.values">
+					<div class="flex-1">{{pointer.text}}</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
