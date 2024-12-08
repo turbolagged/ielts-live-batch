@@ -1,59 +1,38 @@
 <h2 class="mb-4 text-xl font-semibold md:text-2xl">{{testimonials?.name}}</h2>
 
-<div class="relative w-full overflow-hidden bg-white rounded-lg shadow-lg p-6">
- <div
-   class="flex transition-transform duration-500 ease-in-out"
-   [style.transform]="'translateX(-' + currentSlide * 50 + '%)'"
- >
-   <div
-     class="flex-shrink-0 w-1/2 px-4"
-     *ngFor="let slide of processedSlides; let i = index"
-   >
-     <!-- Thumbnail and Video -->
-     <div class="bg-gray-100 rounded-lg shadow p-4 relative">
-       <!-- Thumbnail -->
-       <img
-         [src]="slide.thumb"
-         alt="{{ slide.name }}"
-         class="w-full h-40 rounded-lg object-cover"
-         [class.hidden]="activeVideo === i"
-       />
-       <!-- Play Button -->
-       <button
-         *ngIf="activeVideo !== i"
-         class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-red-600 text-white rounded-full p-2"
-         (click)="playVideo(i)"
-       >
-         ▶
-       </button>
-       <!-- Video -->
-       <iframe
-         *ngIf="activeVideo === i"
-         class="w-full h-48 mt-2 rounded-lg"
-         [src]="slide.videoUrl"
-         frameborder="0"
-         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-         allowfullscreen
-       ></iframe>
-       <div class="mt-4">
-         <h3 class="text-lg font-semibold">{{ slide.name }}</h3>
-         <p class="text-sm">{{ slide.description }}</p>
-       </div>
-     </div>
-   </div>
- </div>
+<div class="relative w-full overflow-hidden bg-white p-6">
+	<div class="flex transition-transform duration-500 ease-in-out"
+		[style.transform]="'translateX(-' + currentSlide * 50 + '%)'">
+		<div class="flex-shrink-0 w-1/2 px-4" *ngFor="let slide of processedSlides; let i = index">
+			<div class="bg-gray-100 rounded-lg shadow p-4 relative">
+				<img [src]="slide.thumb" alt="{{ slide.name }}" class="w-full h-40 rounded-lg object-cover"
+					[class.hidden]="activeVideo === i" />
+				<button *ngIf="activeVideo !== i"
+					class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-white-600 text-white rounded-full p-2"
+					(click)="playVideo(i)">
+					<img src="https://10minuteschool.com/images/annual_exam/play_icon_2.svg?w=100&h=100" alt="play_icon" srcset="">
+				</button>
+				<iframe *ngIf="activeVideo === i" class="w-full h-48 mt-2 rounded-lg" [src]="slide.videoUrl" frameborder="0"
+					allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+					allowfullscreen></iframe>
+				<div class="mt-4">
+					<h3 class="text-lg font-semibold">{{ slide.name }}</h3>
+					<p class="text-sm">{{ slide.description }}</p>
+				</div>
+			</div>
+		</div>
+	</div>
 
- <!-- Controls -->
- <button
-   class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
-   (click)="previousSlide()"
- >
-   &#8249;
- </button>
- <button
-   class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-white p-2 rounded-full shadow-md"
-   (click)="nextSlide()"
- >
-   &#8250;
- </button>
+	<button (click)="previousSlide()"
+	class="absolute top-1/2 -left-0 transform -translate-y-1/2 bg-gray-400 text-black p-2 rounded-full shadow-lg">
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
+		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+	</svg>
+</button>
+<button (click)="nextSlide()"
+	class="absolute top-1/2 -right-0 transform -translate-y-1/2 bg-gray-400 text-black p-2 rounded-full shadow-lg">
+	<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
+		<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+	</svg>
+</button>
 </div>

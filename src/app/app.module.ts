@@ -14,6 +14,7 @@ import { PointersComponent } from './components/sections/pointers/pointers.compo
 import { ClassRoutineComponent } from './components/sections/class-routine/class-routine.component';
 import { TestimonialsComponent } from './components/sections/testimonials/testimonials.component';
 import { AboutComponent } from './components/sections/about/about.component';
+import { BuyCourseComponent } from './components/overview/buy-course/buy-course.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { AboutComponent } from './components/sections/about/about.component';
     PointersComponent,
     ClassRoutineComponent,
     TestimonialsComponent,
-    AboutComponent
+    AboutComponent,
+    BuyCourseComponent
   ],
   imports: [
     BrowserModule,

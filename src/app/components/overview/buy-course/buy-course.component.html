@@ -1,0 +1,69 @@
+<div class="flex justify-center">
+	<div class="w-full md:max-w-[330px] lg:max-w-[400px] order-2 bg-white  top-[100px] md:top-[100px] md:absolute">
+		<div class="sticky w-full">
+			<div class="overflow-hidden rounded-lg">
+				<div class="flex transition-transform duration-500"
+					[ngStyle]="{'transform': 'translateX(' + carouselOffset + '%)'}">
+					<div *ngFor="let slide of slides" class="flex-none w-full">
+						<div *ngIf="slide.resourceType === 'video'">
+							<iframe class="w-full h-64" [src]="slide.resource" title="YouTube video player"
+								allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+								allowfullscreen>
+							</iframe>
+						</div>
+
+						<!-- Image Slide -->
+						<ng-container *ngIf="slide.resource_type === 'image'">
+							<img [src]="slide.resource_value" alt="Slide" class="w-full h-64 object-cover" />
+						</ng-container>
+					</div>
+				</div>
+			</div>
+			<!-- Carousel Controls -->
+			<button (click)="prev()"
+				class="absolute top-1/2 -left-4 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow-lg">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+				</svg>
+			</button>
+			<button (click)="next()"
+				class="absolute top-1/2 -right-4 transform -translate-y-1/2 bg-white text-black p-2 rounded-full shadow-lg">
+				<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" class="w-4 h-4">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+				</svg>
+			</button>
+		</div>
+
+		<div class="flex justify-center gap-2 mt-4">
+			<div *ngFor="let slide of slides; let i = index" (click)="goToSlide(i)"
+				class="cursor-pointer border rounded overflow-hidden" [class.border-blue-500]="i === currentIndex">
+				<img *ngIf="slide.resourceType === 'image'" [src]="slide.resource" alt="Preview"
+					class="w-16 h-16 object-cover" />
+				<div *ngIf="slide.resourceType === 'video'"
+					class="w-16 h-16 bg-gray-200 flex items-center justify-center text-sm text-gray-700">
+					Video
+				</div>
+			</div>
+		</div>
+
+		<!-- Course Details -->
+		<div class="mt-6 p-6 bg-white shadow rounded">
+			<h1 class="text-xl font-bold text-black">
+				৳{{variantDetails?.items[0].final_price}} <span
+					class="line-through text-black font-normal">৳{{variantDetails?.items[0].price}}</span>
+				<span class="bg-orange-400 text-yellow-800 ml-2 px-2 py-1 rounded">{{variantDetails?.items[0].discount_amount}}৳
+					ছাড়</span>
+			</h1>
+			<p class="text-sm text-gray-500 mt-1">Batch 10: 6th January, 2025 - March 19, 2025</p>
+			<button class="mt-4 w-full py-2 bg-green-500 text-white font-bold rounded">কোর্সটি কিনুন</button>
+			<p class="text-sm text-gray-500 mt-4">১১তম ব্যাচে ভর্তি শেষ হবে: ৬ জানুয়ারি, ২০২৫</p>
+
+			<!-- Features -->
+			<ul class="mt-6 space-y-2">
+				<li class="flex items-center text-black" *ngFor="let item of courseDetails?.checklist">
+					<img src="{{item.icon}}" [alt]="item.icon" class="mr-4 mb-2"> {{item.text}}
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>

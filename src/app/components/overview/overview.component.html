@@ -1,35 +1,36 @@
+<div class="container mx-auto px-4 text-white  md:min-h-[300px]">
+	<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+		<div class="p-4">
+			<img src="{{courseDetails.media[0].resource_value}}" alt="live_img" height="40" width="105" loading="lazy">
+			<h1 class="text-white mb-2 text-[21px] font-semibold  md:text-4xl">{{courseDetails.title}}</h1>
+			<div [innerHTML]="courseDetails.description | safeHtml"></div>
+			<div class="py-10 px-4">
+				<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm md:text-base">
+					<div class="flex col-auto gap-2 py-1 text-white"
+						*ngFor="let item of variantDetails?.items[0].meta[0].values">
+						<div>
+							<img src="{{item.icon}}" alt="duration" srcset="" style="color: transparent;" loading="lazy" width="25" height="25">
+						</div>
+						<p class="text-base md:text-lg flex-1">{{item.meta_value}}</p>
+					</div>
+				</div>
 
-<div class="container mx-auto px-4 text-white">
- <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-   <div class="p-4">
-     <img src="{{courseDetails.media[0].resource_value}}" alt="live_img" height="40" width="105" loading="lazy">
-     <h1 class="text-white mb-2 text-[21px] font-semibold  md:text-4xl">{{courseDetails.title}}</h1>
-     <div [innerHTML]="courseDetails.description | safeHtml"></div>
-     <div class="py-10 px-4">
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 text-sm md:text-base">
-        <div class="flex col-auto gap-2 py-1 text-white" *ngFor="let item of courseDetails.checklist.slice().reverse()">
-          <div>
-            <img src="{{item.icon}}" alt="duration" srcset="" style="color: transparent;" loading="lazy">
-          </div>
-          <p class="text-base md:text-lg flex-1">{{item.text}}</p>
-        </div>
-      </div>
+				<!-- countdown  -->
+				<div class="mt-10">
+					<p class="mb-4 text-gray-400">{{variantDetails?.items[0].meta[1].values[0].text}}:</p>
+					<div class="flex space-x-4 text-center">
+						<div *ngFor="let time of countdownKeys" class="bg-gray-900 rounded-lg p-4 w-20">
+							<p class="text-2xl font-bold">{{ countdown[time] }}</p>
+							<p class="text-sm">{{ time }}</p>
+						</div>
+					</div>
+				</div>
+			</div>
 
-      <!-- countdown  -->
-      <div class="mt-10">
-        <p class="mb-4 text-gray-400">১০ম ব্যাচের ভর্তি শেষ হবে:</p>
-        <div class="flex space-x-4 text-center">
-          <div *ngFor="let time of countdownKeys" class="bg-gray-900 rounded-lg p-4 w-20">
-            <p class="text-2xl font-bold">{{ countdown[time] }}</p>
-            <p class="text-sm">{{ time }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-   </div>
-   <div class="p-4">Item 2</div>
- </div>
+		</div>
+		<div class="p-4">
+			<app-buy-course [courseDetails]="courseDetails" 
+			[variantDetails]="variantDetails"></app-buy-course>
+		</div>
+	</div>
 </div>
-
-

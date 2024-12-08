@@ -6,5 +6,9 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./class-routine.component.scss']
 })
 export class ClassRoutineComponent {
-  @Input() routine: any
+  @Input() routine: any;
+
+  downloadRoutine() {
+    
+  }
 }

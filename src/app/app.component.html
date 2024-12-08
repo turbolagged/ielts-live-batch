@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
-<div *ngIf="courseDetails">
+<div *ngIf="courseDetails && variantDetails">
 		<div class="overview-div">
-			<app-overview [courseDetails]="courseDetails"></app-overview>
+			<app-overview [courseDetails]="courseDetails" [variantDetails]="variantDetails"></app-overview>
 		</div>
 	
 	<div class="container mx-auto px-4">
@@ -9,9 +9,8 @@
 			<div class="p-4">
 				<app-sections [courseDetails]="courseDetails"></app-sections>
 			</div>
-			<div class="p-4">Item 2</div>
+			<!-- <div class="p-4">Item 2</div> -->
 		</div>
 	</div>
 </div>
-
 <!-- <router-outlet></router-outlet> -->
